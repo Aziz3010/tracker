@@ -14,6 +14,11 @@ export const middleNavbarMenuList = [
         path: '/castomerservice',
         type: "link",
     },
+    {
+        label: 'Test Track',
+        path: 'shipments/track/50058',
+        type: "link",
+    },
 ];
 
 export const leftNavbarMenuList = [

@@ -17,7 +17,7 @@
   --red-text-color: #E30613;
   --yellow-text-color: #ffe945;
   --green-text-color: #4fcb0d;
-  --gray-border-color: #888;
+  --gray-border-color: #ececec;
   --list-gap: 40px;
 }
 
@@ -47,6 +47,11 @@ ul {
 ul li a,
 ul li button {
   text-wrap: nowrap;
+}
+
+section {
+  width: 100%;
+  height: calc(100vh - 68px);
 }
 
 
