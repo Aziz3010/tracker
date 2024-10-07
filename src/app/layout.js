@@ -1,4 +1,9 @@
+// "use client"
+
+import Navbar from "@/components/Navbar/Navbar";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "./globals.css";
+import { AR_PAGE_DIRECTION, EN_PAGE_DIRECTION } from "@/constants/Configrations";
 
 export const metadata = {
   title: "Bosta",
@@ -6,9 +11,16 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const LANGAUGE = "en";
+
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang={LANGAUGE} style={{direction: `${LANGAUGE === "ar" ? AR_PAGE_DIRECTION : EN_PAGE_DIRECTION}`}}>
+      <body>
+        <Navbar />
+        <main>
+          {children}
+        </main>
+      </body>
     </html>
   );
 }

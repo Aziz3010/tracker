@@ -1,27 +1,113 @@
+/* Import Cairo Font From Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fbfbfb;
+  --large-font-Size: 20;
+  --small-font-Size: 16;
+  --x-small-font-Size: 12;
+  --fontWeight-700: 700;
+  --fontWeight-700: 700;
+  --black-text-color: #171717;
+  --gray-text-color: #888;
+  --red-text-color: #E30613;
+  --yellow-text-color: #ffe945;
+  --green-text-color: #4fcb0d;
+  --gray-border-color: #888;
+  --list-gap: 40px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
 }
 
 body {
-  color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Cairo", Arial;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+a {
+  text-decoration: none;
 }
+
+ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--list-gap);
+}
+
+ul li a,
+ul li button {
+  text-wrap: nowrap;
+}
+
+
+.custom-padding-x {
+  padding: 70px;
+}
+
+.custom-padding-y {
+  padding: 16px;
+}
+
+
+/* Start Fonts */
+
+/* +++++++++ Color ++++++++++ */
+.text-black {
+  color: var(--black-text-color);
+}
+
+.text-gray {
+  color: var(--gray-text-color);
+}
+
+.text-red {
+  color: var(--red-text-color);
+}
+
+.text-yellow {
+  color: var(--yellow-text-color);
+}
+
+.text-green {
+  color: var(--green-text-color);
+}
+
+/* +++++++++ Text size ++++++++++ */
+
+.text-large-size {
+  font-size: var(--large-font-Size);
+}
+
+.text-small-size {
+  font-size: var(--small-font-Size);
+}
+
+.text-x-small-size {
+  font-size: var(--x-small-font-Size);
+}
+
+/* +++++++++ Text weight ++++++++++ */
+
+.text-large-weight {
+  font-weight: var(--fontWeight-700);
+}
+
+.text-small-weight {
+  font-weight: var(--fontWeight-600);
+}
+
+.text-x-small-weight {
+  font-weight: var(--fontWeight-500);
+}
+
+/* End Fonts */
