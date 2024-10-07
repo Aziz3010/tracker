@@ -16,7 +16,7 @@ export const middleNavbarMenuList = [
     },
     {
         label: 'Test Track',
-        path: 'shipments/track/50058',
+        path: '/shipments/track/50058',
         type: "link",
     },
 ];
