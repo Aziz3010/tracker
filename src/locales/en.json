@@ -12,5 +12,6 @@
     "close": "close",
     "menu": "Menu",
     "track": "Track your shipment",
-    "errorMesg": "Code must be 8 digit number"
+    "errorMesg": "Code must be 8 digit number",
+    "notfound": "Code not found"
 }
