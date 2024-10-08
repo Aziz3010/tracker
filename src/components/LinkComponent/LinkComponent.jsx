@@ -28,9 +28,9 @@ const LinkComponent = ({ label, hrefLink, type, actionName, isLangBtn }) => {
 
     return (
         type === "link" ?
-            <Link href={`${hrefLink}?lang=${lang}`} className={`text-large-size text-large-weight capitalize p-[4px] rounded-[8px] border-transparent ${pathName === hrefLink ? "text-red" : ""}`}>{t[label]}</Link>
+            <Link href={`${hrefLink}?lang=${lang}`} className={`w-full block text-large-size text-large-weight capitalize p-[4px] rounded-[8px] border-transparent ${pathName === hrefLink ? "text-red" : ""}`}>{t[label]}</Link>
             :
-            <button onClick={handleClickOnButton} className={`text-large-size text-large-weight capitalize p-[4px] rounded-[8px] border-[1px] border-transparent ${pathName === hrefLink ? "text-red" : ""} ${isLangBtn ? "text-red" : ""} ${label === "track shipment" && trackerPopOverState ? "!border-[var(--gray-border-color)]" : ""}`}>{t[label]}</button>
+            <button onClick={handleClickOnButton} className={`w-full text-large-size text-large-weight capitalize p-[4px] rounded-[8px] border-[1px] border-transparent ${pathName === hrefLink ? "text-red" : ""} ${isLangBtn ? "text-red" : ""} ${label === "track shipment" && trackerPopOverState ? "!border-[var(--gray-border-color)]" : ""}`}>{t[label]}</button>
     )
 }
 
