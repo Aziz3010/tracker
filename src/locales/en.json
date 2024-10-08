@@ -10,5 +10,7 @@
     "coming soon - Castomer Service": "coming soon - Castomer Service",
     "Test Track": "Test Track",
     "close": "close",
-    "menu": "Menu"
+    "menu": "Menu",
+    "track": "Track your shipment",
+    "errorMesg": "Code must be 8 digit number"
 }

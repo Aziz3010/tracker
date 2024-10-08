@@ -10,5 +10,8 @@
     "coming soon - Castomer Service": "قريبا - خدمة العملاء",
     "Test Track": "تجربة الشحنة",
     "close": "اغلاق",
-    "menu": "القائمة"
+    "menu": "القائمة",
+    "track": "تتبع شحنتك",
+    "errorMesg": "يجب ان يكون 8 ارقام"
+
 }

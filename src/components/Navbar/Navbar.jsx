@@ -33,7 +33,6 @@ const Navbar = () => {
     }, [lang]);
 
     return (
-
         <nav className={`w-full custom-padding-x custom-padding-y border-b-[1px] border-[var(--gray-border-color)]`}>
             <Container>
                 <Row className='justify-between'>
@@ -75,7 +74,6 @@ const Navbar = () => {
                     </Col>}
 
                 </Row>
-
             </Container>
         </nav>
     )

@@ -1,11 +1,13 @@
 'use client';
 
 import { useEffect, useState } from "react";
-import Navbar from "@/components/Navbar/Navbar";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./globals.css";
-import ReduxProvider from "@/store/Provider";
 import { Container, Row } from "react-bootstrap";
+import Navbar from "@/components/Navbar/Navbar";
+import ReduxProvider from "@/store/Provider";
+import "bootstrap/dist/css/bootstrap.min.css";
+import 'react-toastify/dist/ReactToastify.css';
+import "./globals.css";
+import { Bounce, ToastContainer } from "react-toastify";
 
 export default function RootLayout({ children }) {
   const [language, setLanguage] = useState("en");
@@ -14,13 +16,13 @@ export default function RootLayout({ children }) {
   const updateLanguageAndDirection = () => {
     const params = new URLSearchParams(window.location.search);
     const lang = params.get("lang") || "en";
-    
+
     setLanguage(lang);
     setDirection(lang === "ar" ? "rtl" : "ltr");
   };
 
   useEffect(() => {
-    updateLanguageAndDirection(); 
+    updateLanguageAndDirection();
 
     const handlePopState = () => {
       updateLanguageAndDirection();
@@ -66,6 +68,20 @@ export default function RootLayout({ children }) {
               <Row>{children}</Row>
             </Container>
           </main>
+
+          <ToastContainer
+            position="top-center"
+            autoClose={1000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="colored"
+            transition={Bounce}
+          />
         </body>
       </html>
     </ReduxProvider>

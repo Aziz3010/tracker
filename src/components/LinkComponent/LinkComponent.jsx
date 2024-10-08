@@ -6,6 +6,7 @@ import { getTranslations } from "@/utils/getTranslations";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useDispatch, useSelector } from "react-redux";
+import ShippingPopover from "../ShippingPopover/ShippingPopover";
 
 const LinkComponent = ({ label, hrefLink, type, actionName, isLangBtn }) => {
     const pathName = usePathname();
@@ -15,7 +16,7 @@ const LinkComponent = ({ label, hrefLink, type, actionName, isLangBtn }) => {
     const dispatch = useDispatch();
 
     const handleClickOnButton = () => {
-        // open popover for shipping code
+        // open popover for shipping code =====> maybe we need to open this popover from any btn outside the navbar so i create it by redux toolkit
         if (actionName === "trackerPopover") {
             console.log(!trackerPopOverState, "trackerPopover");
             dispatch(changeTrackerPopOverState(!trackerPopOverState));
@@ -27,10 +28,21 @@ const LinkComponent = ({ label, hrefLink, type, actionName, isLangBtn }) => {
     };
 
     return (
-        type === "link" ?
-            <Link href={`${hrefLink}?lang=${lang}`} className={`w-full block text-large-size text-large-weight capitalize p-[4px] rounded-[8px] border-transparent ${pathName === hrefLink ? "text-red" : ""}`}>{t[label]}</Link>
-            :
-            <button onClick={handleClickOnButton} className={`w-full text-large-size text-large-weight capitalize p-[4px] rounded-[8px] border-[1px] border-transparent ${pathName === hrefLink ? "text-red" : ""} ${isLangBtn ? "text-red" : ""} ${label === "track shipment" && trackerPopOverState ? "!border-[var(--gray-border-color)]" : ""}`}>{t[label]}</button>
+        (() => {
+            if(type === "link") {
+                return (<Link href={`${hrefLink}?lang=${lang}`} className={`w-full block text-large-size text-large-weight capitalize p-[4px] rounded-[8px] border-transparent ${pathName === hrefLink ? "text-red" : ""}`}>{t[label]}</Link>)
+            }
+            if(type !== "link" && label === "track shipment") {
+                return (
+                    <div className="relative w-full">
+                        <button onClick={handleClickOnButton} className={`w-full text-large-size text-large-weight capitalize p-[4px] rounded-[8px] border-[1px] border-transparent ${pathName === hrefLink ? "text-red" : ""} ${isLangBtn ? "text-red" : ""} ${label === "track shipment" && trackerPopOverState ? "!border-[var(--gray-border-color)]" : ""}`}>{t[label]}</button>
+                        {trackerPopOverState ? <ShippingPopover /> : null}
+                    </div>
+                )
+            }
+
+            return (<button onClick={handleClickOnButton} className={`w-full text-large-size text-large-weight capitalize p-[4px] rounded-[8px] border-[1px] border-transparent ${pathName === hrefLink ? "text-red" : ""} ${isLangBtn ? "text-red" : ""} ${label === "track shipment" && trackerPopOverState ? "!border-[var(--gray-border-color)]" : ""}`}>{t[label]}</button>)
+        })()      
     )
 }
 
