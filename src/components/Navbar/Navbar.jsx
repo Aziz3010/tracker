@@ -13,6 +13,7 @@ import RowList from '../RowList/RowList';
 import ColList from '../ColList/ColList';
 import { getTranslations } from '@/utils/getTranslations';
 import { IoClose } from "react-icons/io5";
+import { AiOutlineMenu } from "react-icons/ai";
 
 const Navbar = () => {
     const { lang } = useSelector((state) => state.langSlice);
@@ -59,7 +60,7 @@ const Navbar = () => {
 
                     {/* Burger button */}
                     <Col className='w-fit flex-grow-0 flex md:hidden'>
-                        <button className='h-full' onClick={handleClickOnBurgerBtn}>{t.menu}</button>
+                        <button className='h-full' onClick={handleClickOnBurgerBtn}><AiOutlineMenu /></button>
                     </Col>
 
                     {/* SideMenu for mobile */}

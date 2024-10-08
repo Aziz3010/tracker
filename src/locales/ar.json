@@ -43,6 +43,6 @@
     "DELIVERED_TO_SENDER": "تم رد الشحنة",
     "FakeAddress": "13أ شارع احمد عرابي, الجيزة - مصر",
     "complain": "ابلاغ عن مشكلة",
-    "Is_there_a_problem_with_your_shipment": "هل يوجد مشكلة في شحنتك؟"
-
+    "Is_there_a_problem_with_your_shipment": "هل يوجد مشكلة في شحنتك؟",
+    "code_not_valid": "الكود غير صحيح"
 }

@@ -43,5 +43,7 @@
     "DELIVERED_TO_SENDER": "Delivered to sender",
     "FakeAddress": "13A ahmed orabi street, Giza - Egypt",
     "complain": "Complain",
-    "Is_there_a_problem_with_your_shipment": "Is there a problem with your shipment?"
+    "Is_there_a_problem_with_your_shipment": "Is there a problem with your shipment?",
+    "code_not_valid": "Code not valid"
+
 }
