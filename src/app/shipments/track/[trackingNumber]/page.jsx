@@ -114,7 +114,7 @@ const TrackPage = ({ params }) => {
         )
       }
 
-      return <h3>loading...</h3>
+      return <h3>{t.loading}</h3>
     })()
   )
 }

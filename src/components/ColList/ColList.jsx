@@ -10,6 +10,7 @@ const ColList = ({ arrayOfData, setShowSideMenu }) => {
                     type={ele?.type}
                     actionName={ele?.type === "btn" ? ele?.actionName : ""}
                     isLangBtn={ele?.type === "btn" && ele?.label === "eng"}
+                    setShowSideMenu={setShowSideMenu}
                 />
             </li>
         ))

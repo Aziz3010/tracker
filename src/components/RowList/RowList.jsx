@@ -1,6 +1,6 @@
 import LinkComponent from '../LinkComponent/LinkComponent'
 
-const RowList = ({ arrayOfData }) => {
+const RowList = ({ arrayOfData, setShowSideMenu }) => {
     return (
         arrayOfData?.map((ele, _) => (
             <li key={ele?.label}>
@@ -10,6 +10,7 @@ const RowList = ({ arrayOfData }) => {
                     type={ele?.type}
                     actionName={ele?.type === "btn" ? ele?.actionName : ""}
                     isLangBtn={ele?.type === "btn" && ele?.label === "eng"}
+                    setShowSideMenu={setShowSideMenu}
                 />
             </li>
         ))

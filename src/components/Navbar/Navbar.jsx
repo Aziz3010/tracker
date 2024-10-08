@@ -47,14 +47,14 @@ const Navbar = () => {
                     {/* Middle List */}
                     <Col xs={6} className='flex-grow-1 hidden md:flex'>
                         <ul className="flex-grow-1 h-full justify-center">
-                            <RowList arrayOfData={middleNavbarMenuList} />
+                            <RowList arrayOfData={middleNavbarMenuList} setShowSideMenu={setShowSideMenu} />
                         </ul>
                     </Col>
 
                     {/* Left List */}
                     <Col className='hidden md:flex'>
                         <ul className='h-full'>
-                            <RowList arrayOfData={leftNavbarMenuList} />
+                            <RowList arrayOfData={leftNavbarMenuList} setShowSideMenu={setShowSideMenu} />
                         </ul>
                     </Col>
 

@@ -8,7 +8,7 @@ import { usePathname } from "next/navigation";
 import { useDispatch, useSelector } from "react-redux";
 import ShippingPopover from "../ShippingPopover/ShippingPopover";
 
-const LinkComponent = ({ label, hrefLink, type, actionName, isLangBtn }) => {
+const LinkComponent = ({ label, hrefLink, type, actionName, isLangBtn, setShowSideMenu }) => {
     const pathName = usePathname();
     const { lang } = useSelector((state) => state.langSlice);
     const { trackerPopOverState } = useSelector((state) => state.trackerPopOverSlice);
@@ -35,7 +35,7 @@ const LinkComponent = ({ label, hrefLink, type, actionName, isLangBtn }) => {
                 return (
                     <div className="relative w-full">
                         <button onClick={handleClickOnButton} className={`w-full text-large-size text-large-weight capitalize p-[4px] rounded-[8px] border-[1px] border-transparent ${pathName === hrefLink ? "text-red" : ""} ${isLangBtn ? "text-red" : ""} ${label === "track shipment" && trackerPopOverState ? "!border-[var(--gray-border-color)]" : ""}`}>{t[label]}</button>
-                        {trackerPopOverState ? <ShippingPopover /> : null}
+                        {trackerPopOverState ? <ShippingPopover setShowSideMenu={setShowSideMenu} /> : null}
                     </div>
                 )
             }

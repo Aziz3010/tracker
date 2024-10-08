@@ -1,29 +1,45 @@
+"use client"
+
 // we must check on the validation, but i do not receive any requery
 
 import SearchIcon from '@/shared/svgs/SearchIcon';
 import { changeTrackerPopOverState } from '@/store/Slices/trackerPopOverSlice';
 import { getTranslations } from '@/utils/getTranslations';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { toast } from 'react-toastify';
 
-const InputComponent = () => {
+const InputComponent = ({setShowSideMenu}) => {
   const inputRef = useRef("");
   const dispatch = useDispatch();
   const router = useRouter();
+  const pathname = usePathname();
+  const pathParts = pathname.split('/');
+  const trackingNumber = pathParts[3];
   const { lang } = useSelector((state) => state.langSlice);
   const t = getTranslations(lang ? lang : "en");
 
   const handleClickOnSearch = () => {
     const inputValue = inputRef.current.value;
+    if(trackingNumber === inputValue) {
+      toast(t.sameCode);
+      return;
+    }
     dispatch(changeTrackerPopOverState(false));
+    setShowSideMenu(false);
     router.push(`/shipments/track/${inputValue.trim()}?lang=${lang}`);
   };
 
   const handleOnKeyDown = (e) => {
     const inputValue = inputRef.current.value;
     if(e.key === "Enter") {
+      if(trackingNumber === inputValue) {
+        toast(t.sameCode);
+        return;
+      }
       dispatch(changeTrackerPopOverState(false));
+      setShowSideMenu(false);
       router.push(`/shipments/track/${inputValue.trim()}?lang=${lang}`);
     }
   };
