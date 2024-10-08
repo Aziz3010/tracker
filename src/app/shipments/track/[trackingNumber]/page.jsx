@@ -21,7 +21,6 @@ const TrackPage = ({ params }) => {
     try {
       const request = await fetch(`${BaseURL}/shipments/track/${shipmentCode}`, { method: "GET" }); // we can use axios
       const data = await request.json();
-      console.log(data);
       // if the code is not correct
       if (data?.error && data?.status === "Not Found.") {
         // we should navigate to home page or display error page for the user

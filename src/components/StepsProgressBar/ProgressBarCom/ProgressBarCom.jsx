@@ -3,6 +3,8 @@ import { ProgressBar, Step } from "react-step-progress-bar";
 import { Col, Container, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { getTranslations } from "@/utils/getTranslations";
+import { FaTruck } from "react-icons/fa";
+import { FaCheck } from "react-icons/fa6";
 
 const ProgressBarCom = ({ transitEvents }) => {
     const { lang } = useSelector((state) => state.langSlice);
@@ -86,7 +88,7 @@ const ProgressBarCom = ({ transitEvents }) => {
                             <Step key={index} transition="scale">
                                 {({ accomplished }) => (
                                     <div style={{ backgroundColor: `${accomplished ? getTheProgressColor() : "#fff"}` }} className={`stepsStyle indexedStep ${accomplished ? "accomplished doneStep" : ""}`}>
-                                        {index}
+                                        {accomplished ? <FaCheck /> : <FaTruck />}
                                     </div>
                                 )}
                             </Step>
@@ -100,10 +102,10 @@ const ProgressBarCom = ({ transitEvents }) => {
                     <h3 className="text--black text-small-size text-small-weight">{t.TICKET_CREATED}</h3>
                 </Col>
                 <Col className="flex flex-col gap-2 p-0 m-0 items-center justify-start">
-                    <h3 className="text--black text-small-size text-small-weight">{t.PACKAGE_RECEIVED}</h3>
+                    <h3 className="text--black text-small-size text-small-weight pr-[0px] lg:pr-[95px]">{t.PACKAGE_RECEIVED}</h3>
                 </Col>
                 <Col className="flex flex-col gap-2 p-0 m-0 items-center justify-start">
-                    <div className="w-full flex flex-col gap-2 items-center justify-start">
+                    <div className="w-full flex flex-col gap-2 items-center justify-start pl-[0px] lg:pl-[90px]">
                         <h3 className="text--black text-small-size text-small-weight">{t.OUT_FOR_DELIVERY}</h3>
                         <h4 className="text-small-size text-small-weight" style={{ color: `${getTheProgressColor()}` }}>{getTheState()}</h4>
                     </div>

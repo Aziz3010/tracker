@@ -22,7 +22,7 @@ const Address = () => {
         <Col>
           <div className='flex items-center bg-[var(--background)] border-[1px] border-[var(--gray-border-color)] rounded-[8px] p-[16px]'>
             <div className='flex-grow-[1]'>
-              <Image src="/assets/logo2.png" height={150} width={150}></Image>
+              <Image src="/assets/logo2.png" height={150} width={150} alt="logo2" priority></Image>
             </div>
 
             <div className='w-full text-center flex-grow-[2]'>

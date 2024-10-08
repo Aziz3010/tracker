@@ -34,29 +34,29 @@ const TopInfoSection = ({ provider, currentStatus, createDate, promisedDate, tra
 
     return (
         <Container className='p-[16px]'>
-            <Row>
-                <Col>
+            <Row className='flex-wrap gap-[20px]'>
+                <Col className='min-w-[150px]'>
                     <div className="w-full flex flex-col gap-2">
                         <h2 className="text-gray text-small-size text-small-weight">{t.shipmentNumber} {trackingNumber}</h2>
                         <h2 className={`text-large-size text-large-weight ${getTheShipmentStatus().color}`}>{t[getTheShipmentStatus().status]}</h2>
                     </div>
                 </Col>
 
-                <Col>
+                <Col className='min-w-[150px]'>
                     <div className="w-full flex flex-col gap-2">
                         <h2 className="text-gray text-small-size text-small-weight">{t.lastUpdate}</h2>
                         <h2 className={`text-large-size text-large-weight text--black`}>{formatDateTime(createDate, "short", true).longDate}</h2>
                     </div>
                 </Col>
 
-                <Col>
+                <Col className='min-w-[150px]'>
                     <div className="w-full flex flex-col gap-2">
                         <h2 className="text-gray text-small-size text-small-weight">{t.sellerName}</h2>
                         <h2 className={`text-large-size text-large-weight text--black`}>{provider}</h2>
                     </div>
                 </Col>
 
-                <Col>
+                <Col className='min-w-[150px]'>
                     <div className="w-full flex flex-col gap-2">
                         <h2 className="text-gray text-small-size text-small-weight">{t.deliveryDateWithin}</h2>
                         <h2 className={`text-large-size text-large-weight text--black`}>{formatDateTime(promisedDate, "short", false).shortDate}</h2>

@@ -2,7 +2,6 @@
 
 import { leftNavbarMenuList, middleNavbarMenuList } from '@/constants/ConstantValues'
 import MainLogo from '@/shared/svgs/MainLogo'
-import LinkComponent from '../LinkComponent/LinkComponent'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -13,6 +12,7 @@ import Link from 'next/link';
 import RowList from '../RowList/RowList';
 import ColList from '../ColList/ColList';
 import { getTranslations } from '@/utils/getTranslations';
+import { IoClose } from "react-icons/io5";
 
 const Navbar = () => {
     const { lang } = useSelector((state) => state.langSlice);
@@ -63,9 +63,9 @@ const Navbar = () => {
                     </Col>
 
                     {/* SideMenu for mobile */}
-                    {showSideMenu && <Col className={`flex md:hidden bg-[var(--background)] border-[var(--gray-border-color)] h-full fixed top-0 ${lang === "en" ? "left-0 border-r-[1px]" : "right-0 border-l-[1px]"} w-[200px] py-[12px]`}>
+                    {showSideMenu && <Col className={`z-50 flex md:hidden bg-[var(--background)] border-[var(--gray-border-color)] h-full fixed top-0 ${lang === "en" ? "left-0 border-r-[1px]" : "right-0 border-l-[1px]"} w-[200px] py-[12px]`}>
                         <div className='h-full w-full relative'>
-                            <button onClick={() => { setShowSideMenu(false) }} className={`text-x-small-size w-fit p-[4px] rounded absolute top-[4px] ${lang === "en" ? "left-[4px]" : "right-[4px]"} bg-red-500`}>{t.close}</button>
+                            <button onClick={() => { setShowSideMenu(false) }} className={`text-x-small-size w-fit p-[4px] rounded absolute top-[4px] ${lang === "en" ? "left-[4px]" : "right-[4px]"}`}><IoClose /></button>
 
                             <ul className='h-full flex-col mt-[50px]'>
                                 <ColList arrayOfData={[...middleNavbarMenuList, ...leftNavbarMenuList]} setShowSideMenu={setShowSideMenu} />

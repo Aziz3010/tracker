@@ -136,6 +136,7 @@ section {
 }
 
 .doneStep {
+  padding: 0;
   width: 20px;
   height: 20px;
   color: var(--background);

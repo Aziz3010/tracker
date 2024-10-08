@@ -18,7 +18,6 @@ const LinkComponent = ({ label, hrefLink, type, actionName, isLangBtn }) => {
     const handleClickOnButton = () => {
         // open popover for shipping code =====> maybe we need to open this popover from any btn outside the navbar so i create it by redux toolkit
         if (actionName === "trackerPopover") {
-            console.log(!trackerPopOverState, "trackerPopover");
             dispatch(changeTrackerPopOverState(!trackerPopOverState));
             return;
         }
