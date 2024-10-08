@@ -7,9 +7,9 @@
 
 :root {
   --background: #fbfbfb;
-  --large-font-Size: 20;
-  --small-font-Size: 16;
-  --x-small-font-Size: 12;
+  --large-font-Size: 16px;
+  --small-font-Size: 14px;
+  --x-small-font-Size: 12px;
   --fontWeight-700: 700;
   --fontWeight-700: 700;
   --black-text-color: #171717;
@@ -19,6 +19,7 @@
   --green-text-color: #4fcb0d;
   --gray-border-color: #ececec;
   --list-gap: 40px;
+  --gray-bg: #f8f8f8;
 }
 
 * {
@@ -67,7 +68,7 @@ section {
 /* Start Fonts */
 
 /* +++++++++ Color ++++++++++ */
-.text-black {
+.text--black {
   color: var(--black-text-color);
 }
 
@@ -116,3 +117,39 @@ section {
 }
 
 /* End Fonts */
+
+/* Progress bar */
+.stepsStyle {
+  font-size: var(--small-font-Size);
+  color: var(--gray-text-color);
+  font-weight: var(--fontWeight-500);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--gray-border-color);
+  border-radius: 50%;
+  padding: 10px;
+  width: 40px;
+  height: 40px;
+  background-color: var(--background);
+}
+
+.doneStep {
+  width: 20px;
+  height: 20px;
+  color: var(--background);
+}
+
+th {
+  background: var(--gray-bg) !important;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--red-text-color);
+}

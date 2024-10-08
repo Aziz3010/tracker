@@ -17,13 +17,13 @@ const InputComponent = () => {
 
   const handleClickOnSearch = () => {
     const inputValue = inputRef.current.value;
-    if(inputValue.length === 8) {
+    // if(inputValue.length === 8) {
       dispatch(changeTrackerPopOverState(false));
       router.push(`/shipments/track/${inputValue}?lang=${lang}`);
-      return;
-    }
+      // return;
+    // }
 
-    toast(t.errorMesg);
+    // toast(t.errorMesg);
   };
 
   return (

@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar/Navbar";
 import ReduxProvider from "@/store/Provider";
 import "bootstrap/dist/css/bootstrap.min.css";
 import 'react-toastify/dist/ReactToastify.css';
+import "react-step-progress-bar/styles.css";
 import "./globals.css";
 import { Bounce, ToastContainer } from "react-toastify";
 

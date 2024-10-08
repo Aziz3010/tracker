@@ -3,11 +3,16 @@
 import Address from "@/components/Address/Address";
 import ShippingHistoryTable from "@/components/ShippingHistoryTable/ShippingHistoryTable";
 import StepsProgressBar from "@/components/StepsProgressBar/StepsProgressBar";
+import { getTranslations } from "@/utils/getTranslations";
 import { useEffect, useState } from "react"
 import { Col, Container, Row } from "react-bootstrap";
+import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
 const TrackPage = ({ params }) => {
+  const { lang } = useSelector((state) => state.langSlice);
+  const t = getTranslations(lang ? lang : "en");
+
   const [shipmentData, setShipmentData] = useState({});
 
   const handleGetRequest = async (shipmentCode) => {
@@ -24,7 +29,7 @@ const TrackPage = ({ params }) => {
       }
 
       // if the code is correct -----> we can use toolkit to access data from the components but i will use the props to pass the data
-      setShipmentData({...data});
+      setShipmentData({ ...data });
     } catch (error) {
       console.log(error);
     }
@@ -37,8 +42,9 @@ const TrackPage = ({ params }) => {
   }, [params.trackingNumber]);
 
   return (
-    <section>
+    <section className="py-[40px]">
       <Container>
+        {/* Steps Progress Bar */}
         <Row>
           <Col className="mb-[20px] md:mb-0">
             <StepsProgressBar
@@ -47,19 +53,26 @@ const TrackPage = ({ params }) => {
               createDate={shipmentData?.CreateDate}
               promisedDate={shipmentData?.PromisedDate}
               trackingNumber={shipmentData?.TrackingNumber}
+              transitEvents={shipmentData?.TransitEvents}
             />
           </Col>
         </Row>
 
-        <Row className="flex-col md:flex-row">
-          <Col className="mb-[20px] md:mb-0">
-            <ShippingHistoryTable
-              transitEvents={shipmentData?.TransitEvents}
-            />
+
+        {/* History table + Address */}
+        <Row className="flex-col md:flex-row mt-[30px]">
+          <Col className="mb-[20px] md:mb-0 md:flex-grow-[2]">
+            <div className="w-full flex flex-col gap-[16px] justify-start items-start">
+              <h3>{t.details}</h3>
+              <ShippingHistoryTable transitEvents={shipmentData?.TransitEvents} />
+            </div>
           </Col>
 
-          <Col className="mb-[20px] md:mb-0">
-            <Address shipmentData={shipmentData} />
+          <Col className="mb-[20px] md:mb-0 md:flex-grow-[1]">
+            <div className="w-full flex flex-col gap-[16px] justify-start items-start">
+              <h3>{t.address}</h3>
+              <Address />
+            </div>
           </Col>
         </Row>
       </Container>
